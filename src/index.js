@@ -1,13 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+//import './index.css';
+//import Mount from './Mount';
+//import Update from './Update';
+//import ToDo from './ToDo';
+//import Tests from "./Tests";
+import FunctionalC from "./FunctionalC";
+
+
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  //<React.StrictMode>
+    
+    <FunctionalC />,
+
+ // </React.StrictMode>,
   document.getElementById('root')
 );
 

@@ -21,8 +21,7 @@ class ToDo extends Component{
             items:[],
             currentItem:{
               text:''
-              
-            }
+               }
         }
           this.addItem = this.addItem.bind(this);
           this.handleInput = this.handleInput.bind(this);

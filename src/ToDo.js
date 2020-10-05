@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-//import ToDoList from "./ToDoList"
 import  "./ToDo.css"
 
 function ToDoList(props){

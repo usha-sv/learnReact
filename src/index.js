@@ -4,8 +4,10 @@ import ReactDOM from 'react-dom';
 //import Mount from './Mount';
 //import Update from './Update';
 //import ToDo from './ToDo';
-import Tests from "./Tests";
-import FunctionalC from "./FunctionalC";
+//import Tests from "./Tests";
+//import FunctionalC from "./FunctionalC";
+import CallInput from "./Input";
+
 
 
 import * as serviceWorker from './serviceWorker';
@@ -13,7 +15,7 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   //<React.StrictMode>
     
-    <Tests />,
+    <CallInput />,
 
  // </React.StrictMode>,
   document.getElementById('root')

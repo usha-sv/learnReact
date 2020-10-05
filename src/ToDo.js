@@ -32,12 +32,11 @@ class ToDo extends Component{
         e.preventDefault();
         const newItem = this.state.currentItem;
         if(newItem.text !==""){
-          const items = [...this.state.items, newItem];
+          const items = [...this.state.items, newItem];//destructuring asssignment
         this.setState({
           items: items,
           currentItem:{
             text:'',
-            key:''
           }
         })
         }

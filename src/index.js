@@ -6,7 +6,10 @@ import ReactDOM from 'react-dom';
 //import ToDo from './ToDo';
 //import Tests from "./Tests";
 //import FunctionalC from "./FunctionalC";
-import CallInput from "./Input";
+//import CallInput from "./Input";
+import InputState from "./InputState";
+
+
 
 
 
@@ -15,7 +18,7 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   //<React.StrictMode>
     
-    <CallInput />,
+    <InputState />,
 
  // </React.StrictMode>,
   document.getElementById('root')

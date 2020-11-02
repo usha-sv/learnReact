@@ -1,21 +1,22 @@
 import React,{Component} from 'react';
-import  "./ToDo.css"
+import  "./TodoFinal.css"
 function ToDoList(props){
     const items = props.items;
     const listItems = items.map(item =>
     {
        return <div className="list" key={item.key} >
           <p>
-         <input type="text" id={item.key} value={item.text} onChange={(e)=>{
-             props.setUpdate(e.target.value,item.key)}}/>
-        <span>
-       
+          <span   className="list">
+
+          {item.text + "                  "   }
+
+          </span>
         <button class="delete" onClick={() => {
             props.deleteItem(item.key)
         }} >Del</button>
-
-
-        </span>
+    <button class="update" onClick={() => {
+            props.updateItem(item.key)
+        }} >Edit</button>
      </p>
      
     </div>})
@@ -30,13 +31,15 @@ class ToDo extends Component{
         this.state = {
             items:[],
             currentItem:{
-              text:''
+              text:'',
+              key:'',
+              editItem:false,
                }
         }
           this.addItem = this.addItem.bind(this);
           this.handleInput = this.handleInput.bind(this);
           this.deleteItem = this.deleteItem.bind(this);
-          this.setUpdate = this.setUpdate.bind(this);
+          this.updateItem = this.updateItem.bind(this);
     }
     addItem(e){
         e.preventDefault();
@@ -62,22 +65,30 @@ class ToDo extends Component{
         this.setState({
           items: filteredItems
         })
-    
       }
-      setUpdate(text,key){
-    console.log("items:"+this.state.items);
-    const items = this.state.items;
-    items.map(item=>{      
-      if(item.key===key){
-        console.log(item.key +"    "+key)
-        item.text= text;
-      }
-    })
+  
+  updateItem(key){
+    console.log("Key:",key)
+
+    const filteredItems= this.state.items.filter(item =>
+      item.key!==key);
+      const selectedItem=this.state.items.find(item=>item.key === key)
+      console.log(selectedItem)
+
     this.setState({
-      items: items
-    })
-    
-   
+      items: filteredItems,
+      currentItem:{
+        text: selectedItem.text,
+        key:selectedItem.key,
+        editItem :true,
+
+      
+
+      }
+     
+    });
+    //console.log(this.state.text)
+
   }
       handleInput(entered){
         this.setState({
@@ -90,18 +101,18 @@ class ToDo extends Component{
       }
 
    render(){
-       console.log("Inside Render")
+       //console.log("Inside Render")
        return(
            <div class="ToDo">
-                <form id="todoForm" >
+                <form id="todoForm" onSubmit={this.addItem}>
                     <h1>To-Do App</h1><br/>
                     <input type="text" placeholder="Enter your text" 
                     value={this.state.currentItem.text} 
-                    onChange={this.handleInput}/>
-                    <button onClick={this.addItem} type="submit">Add</button>
+                    onChange={this.handleInput} editItem={this.state.editItem}/>
+                    <button  type="submit"> {this.editItem ?  'Edit' : 'Add'}</button>
                 </form>
                 <p>{this.state.items.text}</p>
-                <ToDoList items={this.state.items} deleteItem={this.deleteItem} setUpdate={this.setUpdate} />
+                <ToDoList items={this.state.items} deleteItem={this.deleteItem} updateItem={this.updateItem} />
 
             </div>
        );

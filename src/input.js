@@ -5,9 +5,7 @@ function CreateInput(props){
         <input type="text" placeholder={props.placeholder}/>
     );
 }
- 
-
-class CallInput extends Component{
+ class CallInput extends Component{
     constructor(props){
         super(props);
         this.state = {
